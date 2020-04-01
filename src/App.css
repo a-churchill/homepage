@@ -55,10 +55,22 @@ li {
   padding: 30px;
 }
 
+.Sidebar-image {
+  width: 40%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 0 var(--secondary);
+  margin-bottom: -20px;
+}
+
 .Sidebar-name {
   font-family: "concourse_c2_tabregular", Arial, sans-serif;
-  padding: 30px;
+  padding: 10px;
   font-size: 50px;
+}
+
+.Sidebar-nav ul {
+  justify-content: center;
 }
 
 .Sidebar-nav li {

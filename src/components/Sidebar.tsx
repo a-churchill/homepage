@@ -1,10 +1,12 @@
 import React from "react";
 import Icon from "./Icon";
+import me from "../imgs/andrew-churchill.jpg";
 
 function Sidebar() {
   return (
     <div className="Sidebar-aside">
       <aside>
+        <img className="Sidebar-image" src={me} alt="me" />
         <h1 className="Sidebar-name">
           Andrew
           <br />
