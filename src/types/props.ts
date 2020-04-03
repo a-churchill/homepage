@@ -10,7 +10,7 @@ export type SidebarProps = {
 
 export type HeroProps = {
   pxWidth: number;
-  image: string;
+  imageName: string;
   height: number /** 0 to 100% of viewport height */;
 };
 
@@ -20,3 +20,11 @@ export type NavLinkProps = {
   active: boolean;
   scrollTo: number;
 };
+
+export interface ImageProps {
+  src: string;
+  alt: string;
+  overlaySrc?: string;
+  className?: string;
+  [propName: string]: any;
+}

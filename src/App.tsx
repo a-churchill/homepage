@@ -4,8 +4,6 @@ import Sidebar from "./components/Sidebar";
 import Hero from "./components/Hero";
 import { AppTheme } from "./types/styles";
 import { createUseStyles } from "react-jss";
-import embarcadero from "./imgs/embarcadero.jpg";
-import lightString from "./imgs/light-string.jpg";
 import Footer from "./components/Footer";
 import { Section } from "react-smart-sections";
 
@@ -51,6 +49,19 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   },
   standaloneFooter: {
     height: 110
+  },
+  // debug
+  image: {
+    width: "100%",
+    clipPath: "inset(0px round 50%)",
+    boxShadow: `0px 0px 10px 0 ${theme.colorSecondary}`
+  },
+  imageContainer: {
+    width: "min(40%, 130px)",
+    marginTop: 30
+  },
+  otherContainer: {
+    width: "500px"
   }
 }));
 
@@ -84,13 +95,21 @@ function App() {
       <Sidebar width={sidebarWidth} />
       <div className={classes.mainContent}>
         <Section name="About">
-          <Hero pxWidth={dimensions.width} image={embarcadero} height={100} />
+          <Hero
+            pxWidth={dimensions.width}
+            imageName={"embarcadero.jpg"}
+            height={100}
+          />
         </Section>
         <Section name="Places">
           <div style={{ height: 500 }}></div>
         </Section>
         <Section name="Projects">
-          <Hero pxWidth={dimensions.width} image={lightString} height={50} />
+          <Hero
+            pxWidth={dimensions.width}
+            imageName={"light-string.jpg"}
+            height={50}
+          />
         </Section>
         <Section name="Photos">
           <div style={{ height: 950 }}></div>
@@ -99,8 +118,16 @@ function App() {
     </div>
   ) : (
     <div className={classes.mainContent}>
-      <Hero pxWidth={dimensions.width} image={embarcadero} height={100} />
-      <Hero pxWidth={dimensions.width} image={lightString} height={50} />
+      <Hero
+        pxWidth={dimensions.width}
+        imageName={"embarcadero.jpg"}
+        height={100}
+      />
+      <Hero
+        pxWidth={dimensions.width}
+        imageName={"light-string.jpg"}
+        height={50}
+      />
       <div className={classes.standaloneFooter}>
         <Footer />
       </div>
