@@ -34,13 +34,16 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     boxShadow: `0px 0px 10px 0 ${theme.colorSecondary}`,
     marginTop: 30
   },
-  imageContainer: {},
+  navContainer: {
+    marginTop: "calc(20px + 10vh)"
+  },
   name: {
     fontFamily: ["concourse_c2_tabregular", "Helvetica", "sans-serif"],
     padding: 10,
     fontSize: 50,
     margin: 0,
-    lineHeight: 0.9
+    marginTop: 20,
+    lineHeight: 0.95
   },
   footer: {
     position: "absolute",
@@ -56,7 +59,7 @@ function Sidebar(props: SidebarProps) {
   return (
     <div className={classes.sidebar}>
       <aside>
-        <div className={classes.imageContainer}>
+        <div>
           <Image
             className={classes.image}
             src={me}
@@ -75,7 +78,7 @@ function Sidebar(props: SidebarProps) {
             render={(sections: Array<SectionInfo> | undefined) => {
               sections = sections || sectionFallbacks;
               return (
-                <nav>
+                <nav className={classes.navContainer}>
                   <ul>
                     {(sections || []).map((section: SectionInfo) => {
                       return (

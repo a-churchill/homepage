@@ -12,6 +12,7 @@ export type HeroProps = {
   pxWidth: number;
   imageName: string;
   height: number /** 0 to 100% of viewport height */;
+  horizontalWeight?: number /** 0 is all the way to left, 100 is all the way to right */;
 };
 
 export type NavLinkProps = {

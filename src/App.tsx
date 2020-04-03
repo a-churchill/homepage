@@ -6,6 +6,7 @@ import { AppTheme } from "./types/styles";
 import { createUseStyles } from "react-jss";
 import Footer from "./components/Footer";
 import { Section } from "react-smart-sections";
+import Timeline from "./components/Timeline";
 
 const sidebarWidth = "min(30%, 400px)";
 
@@ -45,7 +46,9 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
       showSidebar ? `calc(100% - ${sidebarWidth})` : "100%",
     float: "right",
     right: 0,
-    top: 0
+    top: 0,
+    boxShadow: "rgb(58, 65, 75) 0px 0px 10px 0px",
+    zIndex: 1
   },
   standaloneFooter: {
     height: 110
@@ -99,16 +102,20 @@ function App() {
             pxWidth={dimensions.width}
             imageName={"embarcadero.jpg"}
             height={100}
+            horizontalWeight={70}
           />
         </Section>
         <Section name="Places">
-          <div style={{ height: 500 }}></div>
+          <div>
+            <Timeline />
+          </div>
         </Section>
         <Section name="Projects">
           <Hero
             pxWidth={dimensions.width}
             imageName={"light-string.jpg"}
             height={50}
+            horizontalWeight={0}
           />
         </Section>
         <Section name="Photos">

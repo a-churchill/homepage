@@ -5,7 +5,6 @@ import { AppTheme } from "../types/styles";
 import { animateScroll as scroll } from "react-scroll";
 
 const buttonBehavior = {
-  textDecoration: "none",
   outline: "none"
 };
 
@@ -16,21 +15,38 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   navButton: {
     fontSize: 24,
     color: (props: NavLinkProps) => (props.active ? theme.colorPrimary : ""),
-    textDecoration: (props: NavLinkProps) =>
-      props.active ? "underline" : "none",
+    // textDecoration: (props: NavLinkProps) =>
+    //   props.active ? "underline" : "none",
     "&:hover": {
-      color: theme.colorSecondary,
-      ...buttonBehavior
-    },
-    "&:active": {
-      color: theme.colorPrimary,
+      color: (props: NavLinkProps) =>
+        props.active ? theme.colorPrimary : theme.colorSecondary,
       ...buttonBehavior
     },
     "&:focus": {
-      // color: theme.colorPrimary,
-      ...buttonBehavior,
-      textDecoration: "underline"
-    }
+      color: (props: NavLinkProps) =>
+        props.active ? theme.colorPrimary : theme.colorSecondary,
+      ...buttonBehavior
+    },
+    "&:before": {
+      content: '""',
+      position: "absolute",
+      width: "100%",
+      height: 1.5,
+      bottom: 1,
+      left: 0,
+      backgroundColor: (props: NavLinkProps) =>
+        props.active ? theme.colorPrimary : theme.colorSecondary,
+      visibility: (props: NavLinkProps) =>
+        props.active ? "visible" : "hidden",
+      transform: (props: NavLinkProps) =>
+        props.active ? "scaleX(0.8)" : "scaleX(0)",
+      transition: theme.animation
+    },
+    "&:hover:before": {
+      visibility: "visible",
+      transform: "scaleX(0.8)"
+    },
+    transition: theme.animation
   }
 }));
 
@@ -38,14 +54,16 @@ function NavLink(props: NavLinkProps) {
   const classes = useStyles(props);
   return (
     <li className={classes.navLink}>
-      <button
-        onClick={() => {
-          scroll.scrollTo(props.scrollTo);
-        }}
-        className={classes.navButton}
-      >
-        {props.name}
-      </button>
+      <span style={{ position: "relative", display: "inline-block" }}>
+        <button
+          onClick={() => {
+            scroll.scrollTo(props.scrollTo);
+          }}
+          className={classes.navButton}
+        >
+          {props.name}
+        </button>
+      </span>
     </li>
   );
 }

@@ -3,4 +3,5 @@ export type AppTheme = {
   colorSecondary: string;
   colorBackground: string;
   colorText: string;
+  animation: string;
 };
