@@ -15,6 +15,13 @@ export type HeroProps = {
   horizontalWeight?: number /** 0 is all the way to left, 100 is all the way to right */;
 };
 
+export type CardProps = {
+  title: string;
+  subtitle: string;
+  description: string;
+  imageName: string;
+};
+
 export type NavLinkProps = {
   name: string;
   key: string;

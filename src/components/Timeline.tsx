@@ -1,6 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { AppTheme } from "../types/styles";
+import Card from "./Card";
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
   flexContainer: {
@@ -8,22 +9,25 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   event: {
     width: 200,
     margin: 10,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 }));
 
 function Timeline() {
   const classes = useStyles();
   return (
     <div className={classes.flexContainer}>
-      <div className={classes.event}>Event 1</div>
-      <div className={classes.event}>Event 2</div>
-      <div className={classes.event}>Event 3</div>
+      <Card
+        title="MIT"
+        subtitle="Cambridge, MA"
+        description="Lorem ipsum dolores ..."
+        imageName="mit.png"
+      />
     </div>
   );
 }

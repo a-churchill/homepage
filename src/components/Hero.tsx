@@ -12,12 +12,12 @@ const useStyles = createUseStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "calc(10px + 2vmin)"
+    fontSize: "calc(10px + 2vmin)",
   },
   image: {
     width: "auto",
-    height: `calc(100% + ${parallaxStrength}px)`
-  }
+    height: `calc(100% + ${parallaxStrength}px)`,
+  },
 });
 
 function Hero(props: HeroProps) {

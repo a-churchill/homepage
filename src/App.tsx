@@ -16,29 +16,29 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
       fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
       backgroundColor: theme.colorBackground,
       color: theme.colorText,
-      textAlign: "center"
+      textAlign: "center",
     },
     "h1 h2": {
-      fontFamily: ["concourse_c3_tabregular", "Helvetica", "sans-serif"]
+      fontFamily: ["concourse_c3_tabregular", "Helvetica", "sans-serif"],
     },
     "h3 h4 h5 h6": {
-      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"]
+      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
     },
     a: {
-      textDecoration: "none"
+      textDecoration: "none",
     },
     ul: {
       margin: 0,
-      padding: 5
+      padding: 5,
     },
     li: {
-      listStyle: "none"
+      listStyle: "none",
     },
     button: {
       border: "none",
       backgroundColor: "rgba(0, 0, 0, 0)",
-      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"]
-    }
+      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
+    },
   },
   mainContent: {
     position: "absolute",
@@ -48,36 +48,36 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     right: 0,
     top: 0,
     boxShadow: "rgb(58, 65, 75) 0px 0px 10px 0px",
-    zIndex: 1
+    zIndex: 1,
   },
   standaloneFooter: {
-    height: 110
+    height: 110,
   },
   // debug
   image: {
     width: "100%",
     clipPath: "inset(0px round 50%)",
-    boxShadow: `0px 0px 10px 0 ${theme.colorSecondary}`
+    boxShadow: `0px 0px 10px 0 ${theme.colorSecondary}`,
   },
   imageContainer: {
     width: "min(40%, 130px)",
-    marginTop: 30
+    marginTop: 30,
   },
   otherContainer: {
-    width: "500px"
-  }
+    width: "500px",
+  },
 }));
 
 function App() {
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
-    width: window.innerWidth
+    width: window.innerWidth,
   });
   useEffect(() => {
     const handleResize = () => {
       setDimensions({
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
       });
     };
 
