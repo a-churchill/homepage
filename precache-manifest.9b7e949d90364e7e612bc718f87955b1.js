@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cf3db4050f4ec8422052cda15fdf3dfc",
+    "revision": "7c06866dee4560cac1b2f9c84424e1ba",
     "url": "/index.html"
   },
   {
-    "revision": "11c3bcfc4f2947849e01",
+    "revision": "589531e25345af4d462c",
     "url": "/static/css/main.06401b81.chunk.css"
   },
   {
-    "revision": "14d1160186af3e13f8e9",
-    "url": "/static/js/2.33429cfa.chunk.js"
+    "revision": "534d497ec60326e8a57b",
+    "url": "/static/js/2.edbc935b.chunk.js"
   },
   {
-    "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/static/js/2.33429cfa.chunk.js.LICENSE.txt"
+    "revision": "301056a7ca16ead6156b38e6917dbb28",
+    "url": "/static/js/2.edbc935b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "11c3bcfc4f2947849e01",
-    "url": "/static/js/main.e17f3dca.chunk.js"
+    "revision": "589531e25345af4d462c",
+    "url": "/static/js/main.f3969dfe.chunk.js"
   },
   {
     "revision": "f2524c38ee08a8c13568",
@@ -248,12 +248,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/louvre-outside.5ddd60d3.jpg"
   },
   {
+    "revision": "8a646f8f1c000ff079ef68b2011a5a0a",
+    "url": "/static/media/microsoft.8a646f8f.png"
+  },
+  {
     "revision": "f48355a3c9da59cd45965cf768ea9d1e",
     "url": "/static/media/palm-tree-sunset.f48355a3.jpg"
   },
   {
     "revision": "522cf3b7bd7e34753522746221cda9e0",
     "url": "/static/media/palm-tree.522cf3b7.jpg"
+  },
+  {
+    "revision": "149f2e9b8190479ea26e1061da6656fd",
+    "url": "/static/media/salesforce.149f2e9b.png"
   },
   {
     "revision": "771c43af705aec303537504b742909be",

@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.06401b81.chunk.css",
-    "main.js": "/static/js/main.e17f3dca.chunk.js",
-    "main.js.map": "/static/js/main.e17f3dca.chunk.js.map",
+    "main.js": "/static/js/main.f3969dfe.chunk.js",
+    "main.js.map": "/static/js/main.f3969dfe.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.0ee01374.js",
     "runtime-main.js.map": "/static/js/runtime-main.0ee01374.js.map",
-    "static/js/2.33429cfa.chunk.js": "/static/js/2.33429cfa.chunk.js",
-    "static/js/2.33429cfa.chunk.js.map": "/static/js/2.33429cfa.chunk.js.map",
+    "static/js/2.edbc935b.chunk.js": "/static/js/2.edbc935b.chunk.js",
+    "static/js/2.edbc935b.chunk.js.map": "/static/js/2.edbc935b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.439085d8d098951f14c792bccac0aa25.js": "/precache-manifest.439085d8d098951f14c792bccac0aa25.js",
+    "precache-manifest.9b7e949d90364e7e612bc718f87955b1.js": "/precache-manifest.9b7e949d90364e7e612bc718f87955b1.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.06401b81.chunk.css.map": "/static/css/main.06401b81.chunk.css.map",
-    "static/js/2.33429cfa.chunk.js.LICENSE.txt": "/static/js/2.33429cfa.chunk.js.LICENSE.txt",
+    "static/js/2.edbc935b.chunk.js.LICENSE.txt": "/static/js/2.edbc935b.chunk.js.LICENSE.txt",
     "static/media/andrew-churchill.jpg": "/static/media/andrew-churchill.5bb9dd42.jpg",
     "static/media/fonts.css": "/static/media/icomoon.83c22879.eot",
     "static/media/embarcadero.jpg": "/static/media/embarcadero.170cfe03.jpg",
@@ -22,16 +22,18 @@
     "static/media/light-string.jpg": "/static/media/light-string.188da2d3.jpg",
     "static/media/louvre-inside.jpg": "/static/media/louvre-inside.6b0e0871.jpg",
     "static/media/louvre-outside.jpg": "/static/media/louvre-outside.5ddd60d3.jpg",
+    "static/media/microsoft.png": "/static/media/microsoft.8a646f8f.png",
     "static/media/palm-tree-sunset.jpg": "/static/media/palm-tree-sunset.f48355a3.jpg",
     "static/media/palm-tree.jpg": "/static/media/palm-tree.522cf3b7.jpg",
+    "static/media/salesforce.png": "/static/media/salesforce.149f2e9b.png",
     "static/media/sausalito.jpg": "/static/media/sausalito.da409124.jpg",
     "static/media/ships.jpg": "/static/media/ships.7dde7ff6.jpg",
     "static/media/wadi-rum.jpg": "/static/media/wadi-rum.93d3a147.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.0ee01374.js",
-    "static/js/2.33429cfa.chunk.js",
+    "static/js/2.edbc935b.chunk.js",
     "static/css/main.06401b81.chunk.css",
-    "static/js/main.e17f3dca.chunk.js"
+    "static/js/main.f3969dfe.chunk.js"
   ]
 }
