@@ -10,24 +10,19 @@ const cardPadding = 25;
 export const cardWidth = 500;
 export const cardMargin = 80;
 
-type styleProps = {
-  active: boolean;
-  mobile: boolean;
-}
-
 const useStyles = createUseStyles((theme: AppTheme) => ({
   cardContainer: {
     // affected by mobile or active state
-    background: (props: styleProps) => (props.active || props.mobile ? theme.colorHighlight : theme.colorBackground),
+    background: (props: CardProps) => (props.active || props.mobile ? theme.colorHighlight : theme.colorBackground),
 
     // affected by mobile state
     width: `min(${cardWidth}px, calc(100% - ${cardMargin}px))`,
-    marginLeft: (props: styleProps) => (props.mobile ? 0 : cardMargin),
-    marginBottom: (props: styleProps) => (props.mobile ? cardMargin / 2 : ""),
+    marginLeft: (props: CardProps) => (props.mobile ? 0 : cardMargin),
+    marginBottom: (props: CardProps) => (props.mobile ? cardMargin / 2 : ""),
 
     // affected by active state
-    transform: (props: styleProps) => (props.active ? "scale(1.1)" : "scale(1)"),
-    boxShadow: (props: styleProps) => (props.active ? `${shadowColor(0.3)} 0px 0px 30px 10px` : `${shadowColor(0.3)} 0px 0px 20px 3px`),
+    transform: (props: CardProps) => (props.active ? "scale(1.1)" : "scale(1)"),
+    boxShadow: (props: CardProps) => (props.active ? `${shadowColor(0.3)} 0px 0px 30px 10px` : `${shadowColor(0.3)} 0px 0px 20px 3px`),
 
     // applies to any state
     textAlign: "left",
@@ -38,9 +33,9 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   },
   icon: {
     // affected by mobile state
-    position: (props: styleProps) => (props.mobile ? "" : "absolute"),
-    margin: (props: styleProps) => (props.mobile ? "auto" : ""),
-    display: (props: styleProps) => (props.mobile ? "block" : ""),
+    position: (props: CardProps) => (props.mobile ? "" : "absolute"),
+    margin: (props: CardProps) => (props.mobile ? "auto" : ""),
+    display: (props: CardProps) => (props.mobile ? "block" : ""),
 
     // applies to any state
     height: 50,
@@ -51,7 +46,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   },
   title: {
     // affected by mobile state
-    textAlign: (props: styleProps) => (props.mobile ? "center" : ""),
+    textAlign: (props: CardProps) => (props.mobile ? "center" : ""),
 
     // applies to any state
     top: cardPadding,
@@ -61,7 +56,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   },
   subtitle: {
     // affected by mobile state
-    textAlign: (props: styleProps) => (props.mobile ? "center" : ""),
+    textAlign: (props: CardProps) => (props.mobile ? "center" : ""),
 
     // applies to any state
     fontFamily: ["concourse_t2_tabregular", "Helvetica", "sans-serif"],
@@ -79,7 +74,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
 }));
 
 function Card(props: CardProps) {
-  const classes = useStyles({ active: props.active, mobile: props.mobile });
+  const classes = useStyles(props);
   const icon = require(`../imgs/icons/${props.title.toLowerCase()}.png`);
 
   return (

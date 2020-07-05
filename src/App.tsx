@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import { Section } from "react-smart-sections";
 import Timeline from "./components/Timeline";
 import { globalTheme, shadowColor } from "./common/theming";
+import SectionHeader from "./components/SectionHeader";
 
 const sidebarWidth = "min(30%, 400px)";
 
@@ -20,7 +21,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     float: "right",
     right: 0,
     top: 0,
-    boxShadow: `${shadowColor(1)} 0px 0px 10px 0px`,
+    boxShadow: `${shadowColor(1)} 0px 0px 1px 0px`,
     zIndex: 1,
   },
 }));
@@ -57,27 +58,33 @@ function App() {
         <Section name="About">
           <Hero
             pxWidth={dimensions.width}
-            imageName={"embarcadero.jpg"}
-            height={100}
-            horizontalWeight={70}
+            imageName="sausalito.jpg"
+            height={70}
+            horizontalWeight={40}
+            text=""
           />
+          <SectionHeader contentFile="about.json" reverse={false} />
         </Section>
         <Section name="Places">
-          <div>
-            <Timeline contentFile="places.json" mobile={false} />
-          </div>
+          <Timeline contentFile="places.json" mobile={false} />
         </Section>
         <Section name="Projects">
           <Hero
             pxWidth={dimensions.width}
-            imageName={"light-string.jpg"}
+            imageName="light-string.jpg"
             height={50}
             horizontalWeight={0}
+            text="Projects"
+            lightText={true}
           />
         </Section>
         <Section name="Photos">
           <div style={{ height: 950 }}></div>
         </Section>
+        <Section name="Updates">
+          <div style={{ height: 950, background: "black" }}></div>
+        </Section>
+
       </div>
     </div>
   ) : (
@@ -85,14 +92,18 @@ function App() {
       <div className={classes.mainContent}>
         <Hero
           pxWidth={dimensions.width}
-          imageName={"embarcadero.jpg"}
-          height={100}
+          imageName={"sausalito.jpg"}
+          height={70}
+          text=""
+          horizontalWeight={90}
         />
+        <SectionHeader contentFile="about.json" reverse={false} />
         <Timeline contentFile="places.json" mobile={true} />
         <Hero
           pxWidth={dimensions.width}
           imageName={"light-string.jpg"}
           height={50}
+          text="Projects"
         />
         <div>
           <Footer standalone={true} />

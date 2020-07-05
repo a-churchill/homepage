@@ -18,6 +18,8 @@ export type HeroProps = {
   imageName: string;
   height: number /** 0 to 100% of viewport height */;
   horizontalWeight?: number /** 0 is all the way to left, 100 is all the way to right */;
+  text: string;
+  lightText?: boolean;
 };
 
 export type FooterProps = {
@@ -39,6 +41,12 @@ export type NavLinkProps = {
   active: boolean;
   scrollTo: number;
 };
+
+
+export type SectionHeaderProps = {
+  contentFile: string;
+  reverse: boolean;
+}
 
 export interface ImageProps {
   src: string;

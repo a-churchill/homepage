@@ -77,6 +77,14 @@ const applyScrollListener = (stickyRef: React.MutableRefObject<null>, setTransla
   });
 };
 
+// given current translateX position, tells which card should be active
+const getCurrentActive = (translateX: number): number => {
+  // key point: the card grows when active, meaning we need to account for how much the
+  // margin is eaten into (that's "marginBonus"). 
+  const marginBonus = 0.1 * (cardWidth)
+  return Math.floor(((-translateX + cardWidth / 2) - marginBonus) / (cardWidth + cardMargin + marginBonus))
+}
+
 function Timeline(props: TimelineProps) {
   // height of outer tall container
   const [dynamicHeight, setDynamicHeight] = useState(0);
@@ -101,8 +109,14 @@ function Timeline(props: TimelineProps) {
   useEffect(() => {
     // sets tall container to correct height
     handleDynamicHeight(hcRef, stickyRef, setDynamicHeight);
+    // resizes tall container if the window resizes
     window.addEventListener("resize", resizeHandler);
+    // translates the horizontal box correctly on the window moving
     applyScrollListener(stickyRef, setTranslateX);
+    // cleanup, called
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
   }, []);
 
 
@@ -114,11 +128,8 @@ function Timeline(props: TimelineProps) {
         <div className={classes.horizontalTranslateContainer} ref={hcRef}>
           <div className={classes.flexContainer}>
             {cards.map((card: CardProps, index: number) => {
-              const marginBonus = 0.1 * (cardWidth)
-              const currentActive = Math.floor(((-translateX + cardWidth / 2) - marginBonus) / (cardWidth + cardMargin + marginBonus))
-              console.log(`${translateX}, ${currentActive} (bonus: ${marginBonus})`)
               return (
-                <Card key={card.title} mobile={false} active={index === currentActive} {...card} />)
+                <Card key={card.title} mobile={false} active={index === getCurrentActive(translateX)} {...card} />)
             })}
           </div>
         </div>

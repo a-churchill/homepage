@@ -3,22 +3,26 @@ import { createUseStyles } from "react-jss";
 import { HeroProps } from "../types/props";
 import { Parallax, Background } from "react-parallax";
 import Image from "./Image";
+import { AppTheme } from "../types/styles";
+import { shadowColor } from "../common/theming";
 
 const parallaxStrength = 1000;
 
-const useStyles = createUseStyles({
+const useStyles = createUseStyles((theme: AppTheme) => ({
   header: {
     minHeight: (props: HeroProps) => `${props.height}vh`,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "calc(10px + 2vmin)",
+    fontSize: "calc(30px + 4vmin)",
+    color: (props: HeroProps) => (props.lightText ? theme.colorHighlight : theme.colorText),
+    textShadow: `0 0 10px ${shadowColor(1)}`
   },
   image: {
     width: "auto",
     height: `calc(100% + ${parallaxStrength}px)`,
   },
-});
+}));
 
 function Hero(props: HeroProps) {
   let classes = useStyles(props);
@@ -31,9 +35,9 @@ function Hero(props: HeroProps) {
     : "50%";
 
   return (
-    <Parallax strength={1000} bgStyle={{ left }}>
+    <Parallax strength={700} bgStyle={{ left }}>
       <header className={classes.header}>
-        Coming Soon™. Current width: {props.pxWidth} px
+        {props.text}
       </header>
       <Background>
         <Image
