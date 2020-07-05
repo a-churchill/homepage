@@ -30,6 +30,7 @@ export type CardProps = {
   description: string; // markdown
   active?: boolean;
   key?: string;
+  mobile?: boolean;
 };
 
 export type NavLinkProps = {

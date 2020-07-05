@@ -13,6 +13,7 @@ type styleProps = {
 }
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
+  // desktop only
   outerContainer: {
     height: (props: styleProps) => props.dynamicHeight + cardMargin,
     position: "relative",
@@ -38,11 +39,13 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  // mobile only
   mobileContainer: {
+    paddingTop: cardMargin / 2,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
   }
 }));
 
@@ -66,9 +69,9 @@ const handleDynamicHeight = (objectRef: React.MutableRefObject<null>, containerR
 };
 
 // applies listener to translate horizontal scroll component
-const applyScrollListener = (ref: React.MutableRefObject<null>, setTranslateX: React.Dispatch<React.SetStateAction<number>>) => {
+const applyScrollListener = (stickyRef: React.MutableRefObject<null>, setTranslateX: React.Dispatch<React.SetStateAction<number>>) => {
   window.addEventListener("scroll", () => {
-    const current = ref.current || { offsetTop: 0 }
+    const current = stickyRef.current || { offsetTop: 0 }
     const offsetTop = -current.offsetTop;
     setTranslateX(offsetTop);
   });
@@ -115,7 +118,7 @@ function Timeline(props: TimelineProps) {
               const currentActive = Math.floor(((-translateX + cardWidth / 2) - marginBonus) / (cardWidth + cardMargin + marginBonus))
               console.log(`${translateX}, ${currentActive} (bonus: ${marginBonus})`)
               return (
-                <Card key={card.title} active={index === currentActive} {...card} />)
+                <Card key={card.title} mobile={false} active={index === currentActive} {...card} />)
             })}
           </div>
         </div>
@@ -124,7 +127,9 @@ function Timeline(props: TimelineProps) {
   ) : (
       // mobile layout
       <div className={classes.mobileContainer}>
-        {cards.map((card: CardProps) => { return Card(card) })}
+        {cards.map((card: CardProps, index: number) => {
+          return <Card key={card.title} mobile={true} {...card} />
+        })}
       </div >
     );
 }
