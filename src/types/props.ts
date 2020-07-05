@@ -8,6 +8,11 @@ export type SidebarProps = {
   width: string;
 };
 
+export type TimelineProps = {
+  mobile: boolean;
+  contentFile: string;
+}
+
 export type HeroProps = {
   pxWidth: number;
   imageName: string;
@@ -15,11 +20,16 @@ export type HeroProps = {
   horizontalWeight?: number /** 0 is all the way to left, 100 is all the way to right */;
 };
 
+export type FooterProps = {
+  standalone: boolean;
+}
+
 export type CardProps = {
   title: string;
   subtitle: string;
-  description: string;
-  imageName: string;
+  description: string; // markdown
+  active?: boolean;
+  key?: string;
 };
 
 export type NavLinkProps = {

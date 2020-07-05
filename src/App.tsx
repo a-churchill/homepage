@@ -7,39 +7,12 @@ import { createUseStyles } from "react-jss";
 import Footer from "./components/Footer";
 import { Section } from "react-smart-sections";
 import Timeline from "./components/Timeline";
+import { globalTheme, shadowColor } from "./common/theming";
 
 const sidebarWidth = "min(30%, 400px)";
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
-  "@global": {
-    body: {
-      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
-      backgroundColor: theme.colorBackground,
-      color: theme.colorText,
-      textAlign: "center",
-    },
-    "h1 h2": {
-      fontFamily: ["concourse_c3_tabregular", "Helvetica", "sans-serif"],
-    },
-    "h3 h4 h5 h6": {
-      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
-    },
-    a: {
-      textDecoration: "none",
-    },
-    ul: {
-      margin: 0,
-      padding: 5,
-    },
-    li: {
-      listStyle: "none",
-    },
-    button: {
-      border: "none",
-      backgroundColor: "rgba(0, 0, 0, 0)",
-      fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
-    },
-  },
+  ...globalTheme(theme),
   mainContent: {
     position: "absolute",
     width: (showSidebar: boolean) =>
@@ -47,24 +20,8 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     float: "right",
     right: 0,
     top: 0,
-    boxShadow: "rgb(58, 65, 75) 0px 0px 10px 0px",
+    boxShadow: `${shadowColor(1)} 0px 0px 10px 0px`,
     zIndex: 1,
-  },
-  standaloneFooter: {
-    height: 110,
-  },
-  // debug
-  image: {
-    width: "100%",
-    clipPath: "inset(0px round 50%)",
-    boxShadow: `0px 0px 10px 0 ${theme.colorSecondary}`,
-  },
-  imageContainer: {
-    width: "min(40%, 130px)",
-    marginTop: 30,
-  },
-  otherContainer: {
-    width: "500px",
   },
 }));
 
@@ -107,7 +64,7 @@ function App() {
         </Section>
         <Section name="Places">
           <div>
-            <Timeline />
+            <Timeline contentFile="places.json" mobile={false} />
           </div>
         </Section>
         <Section name="Projects">
@@ -124,22 +81,24 @@ function App() {
       </div>
     </div>
   ) : (
-    <div className={classes.mainContent}>
-      <Hero
-        pxWidth={dimensions.width}
-        imageName={"embarcadero.jpg"}
-        height={100}
-      />
-      <Hero
-        pxWidth={dimensions.width}
-        imageName={"light-string.jpg"}
-        height={50}
-      />
-      <div className={classes.standaloneFooter}>
-        <Footer />
+      // mobile layout
+      <div className={classes.mainContent}>
+        <Hero
+          pxWidth={dimensions.width}
+          imageName={"embarcadero.jpg"}
+          height={100}
+        />
+        <Timeline contentFile="places.json" mobile={true} />
+        <Hero
+          pxWidth={dimensions.width}
+          imageName={"light-string.jpg"}
+          height={50}
+        />
+        <div>
+          <Footer standalone={true} />
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default App;

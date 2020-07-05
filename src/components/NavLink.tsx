@@ -40,13 +40,13 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
         props.active ? "visible" : "hidden",
       transform: (props: NavLinkProps) =>
         props.active ? "scaleX(0.8)" : "scaleX(0)",
-      transition: theme.animation
+      transition: theme.animationExciting
     },
     "&:hover:before": {
       visibility: "visible",
       transform: "scaleX(0.8)"
     },
-    transition: theme.animation
+    transition: theme.animationExciting
   }
 }));
 

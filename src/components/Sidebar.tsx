@@ -8,6 +8,7 @@ import { AppTheme } from "../types/styles";
 import Footer from "./Footer";
 import { SectionsSpy } from "react-smart-sections";
 import Image from "./Image";
+import { shadowColor } from "../common/theming";
 
 const sectionFallbacks = [
   { name: "About", active: true, yScrollPoint: 0 },
@@ -31,7 +32,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   image: {
     width: "min(40%, 130px)",
     borderRadius: "50%",
-    boxShadow: `0px 0px 10px 0 ${theme.colorSecondary}`,
+    boxShadow: `${shadowColor(1)} 0px 0px 10px 0`,
     marginTop: 30
   },
   navContainer: {
@@ -96,7 +97,7 @@ function Sidebar(props: SidebarProps) {
             }}
           />
         </div>
-        <Footer />
+        <Footer standalone={false} />
       </aside>
     </div>
   );

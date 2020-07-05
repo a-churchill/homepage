@@ -1,0 +1,27 @@
+[
+  {
+    "title": "MIT",
+    "subtitle": "2017-2021",
+    "description": "I'm currently a senior at MIT, majoring in Computer Science (6-3) and Mathematics (18). If I had to choose my favorite classes I've ever taken at MIT, they would be:\n\n - **6.08** - Interconnected Embedded Systems (I've also been a TA!)\n - **18.100Q** - Real Analysis\n - **6.031** - Software Construction\n - **6.046** - Design and Analysis of Algorithms\n - **17.30** - Making Public Policy\n - **21G.10x** - Chinese 1-4.\n\nOutside of academics, my favorite thing to do is play Ultimate Frisbee - I've been the captain of the [Grim Beavers](http://mens-ult.mit.edu/) for two years now! Frisbee is probably my favorite thing about college.\n\nI'm also a member of the [Tau Beta Pi](http://web.mit.edu/tbp/www/) and [Eta Kappa Nu](https://hkn.mit.edu/) honors societies."
+  },
+  {
+    "title": "Salesforce",
+    "subtitle": "2019, 2020",
+    "description": "I've spent two summers at Salesforce.org, working on a wonderful product called [Philanthropy Cloud](https://www.salesforce.org/philanthropy-cloud-overview/philanthropy-cloud-for-companies/). The goal of Philanthropy Cloud is to connect people with charities that matter to them, and then to drive them to donate to or volunteer for causes that count.\n\nIn my first summer, I worked on a few projects. For one, I built a passwordless login flow to make accessing the Philanthropy Cloud platform as seamless as possible. For another, I added analytics tracking throughout the frontend, giving a start-to-finish view of what was driving donations.\n\nIn my second summer, I'm working on architecting and then building a custom analytics pipeline, giving meaningful insights into massive amounts of data."
+  },
+  {
+    "title": "Microsoft",
+    "subtitle": "2020",
+    "description": "I spent January 2020 working at Microsoft, working with the [Xamarin](https://dotnet.microsoft.com/apps/xamarin) team in Cambridge, MA. I spent my time there working on Software engineering intern with the Xamarin team, working on [Binding Tools for Swift](https://github.com/xamarin/binding-tools-for-swift) (a.k.a. Swift-o-Matic).\n\nMy job was to shore up the bindings for enums, so I was able to get into the weeds and write code controlling how C# would be translated into Swift. I learned a surprising amount despite the short time frame, and it was definitely an IAP to remember!"
+  },
+  {
+    "title": "HCIE",
+    "subtitle": "2018-2019",
+    "description": "I joined the [Human Computer Interaction Engineering Group](https://hcie.csail.mit.edu/) in Fall 2018, thanks to my longstanding passion for 3D printing. I spent the next year working on [G-ID](https://hcie.csail.mit.edu/research/gid/gid.html), an invention to identify and differentiate between identical-appearing 3D printed objects by embedding information in the inherent imperfections left by the printing process.\n\nI wrote a computer vision algorithm to identify the internal infill pattern, then an Android app which applied that algorithm (and a bunch of other fancy processing) to make identifying a 3D print as simple as pointing your phone's camera at it. [The paper we wrote](http://groups.csail.mit.edu/hcie/files/research-projects/G-ID/2020-CHI-GID-paper.pdf) was ultimately published for CHI 2020!"
+  },
+  {
+    "title": "MEET",
+    "subtitle": "2018",
+    "description": "Over the summer of 2018, I spent a month in Jerusalem teaching computer science for the [Middle East Entrepreneurs of Tomorrow](https://meet.mit.edu/). MEET was founded with the lofty goal of solving the conflict between Israel and Palestine, by bringing together and training a generation of leaders from both countries.\n\nAt MEET I taught introductory Python programming to Y1 students, most of whom were 14 and 15 years old. It remains by far the most meaningful experience I've had, and I certainly hope to return to Jerusalem one day!"
+  }
+]

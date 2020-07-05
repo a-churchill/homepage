@@ -2,18 +2,26 @@ import React from "react";
 import Icon from "./Icon";
 import { createUseStyles } from "react-jss";
 import { AppTheme } from "../types/styles";
+import { FooterProps } from "../types/props"
+
+const footerStyle = {
+  position: "absolute",
+  bottom: 40,
+  right: "1.5em",
+  left: "1.5em",
+  padding: "0 20px"
+
+}
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
-  footer: {
-    position: "absolute",
-    bottom: 40,
-    right: "1.5em",
-    left: "1.5em",
-    padding: "0 20px"
-  }
+  footer: footerStyle,
+  standaloneFooter: {
+    height: 110,
+    ...footerStyle
+  },
 }));
 
-function Footer() {
+function Footer(props: FooterProps) {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
