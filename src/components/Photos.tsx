@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 import { createUseStyles } from 'react-jss';
+import LazyLoad from 'react-lazy-load';
 import Gallery from 'react-photo-gallery';
 
 import Image from './Image';
@@ -206,21 +207,28 @@ const Photos = () => {
         onClick={openLightbox}
         targetRowHeight={400}
         renderImage={(props) => (
-          <Image
-            src={require(`../imgs/scaled/${props.photo.src}`)}
-            overlaySrc={require(`../imgs/thumbnails/${props.photo.src}`)}
-            alt={props.photo.alt || ""}
-            style={{
-              width: props.photo.width,
-              height: props.photo.height,
-              margin: props.margin,
-              cursor: "pointer",
-            }}
-            onClick={(event: any) =>
-              props.onClick && props.onClick(event, { index: props.index })
-            }
-            key={props.photo.src}
-          />
+          <div key={props.photo.src} style={{ margin: props.margin }}>
+            <LazyLoad
+              width={props.photo.width}
+              height={props.photo.height}
+              offsetVertical={800}
+              debounce={false}
+            >
+              <Image
+                src={require(`../imgs/scaled/${props.photo.src}`)}
+                overlaySrc={require(`../imgs/thumbnails/${props.photo.src}`)}
+                alt={props.photo.alt || ""}
+                style={{
+                  width: props.photo.width,
+                  height: props.photo.height,
+                  cursor: "pointer",
+                }}
+                onClick={(event: any) =>
+                  props.onClick && props.onClick(event, { index: props.index })
+                }
+              />
+            </LazyLoad>
+          </div>
         )}
       />
       <ModalGateway>
