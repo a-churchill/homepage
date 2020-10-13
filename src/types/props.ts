@@ -11,7 +11,20 @@ export type SidebarProps = {
 export type TimelineProps = {
   mobile: boolean;
   contentFile: string;
-}
+};
+
+export type UpdatesProps = {
+  mobile: boolean;
+  contentFile: string;
+};
+
+export type UpdateProps = {
+  title: string;
+  subtitle: string;
+  anchor: string;
+  body: string;
+  date: string;
+};
 
 export type HeroProps = {
   pxWidth: number;
@@ -19,12 +32,13 @@ export type HeroProps = {
   height: number /** 0 to 100% of viewport height */;
   horizontalWeight?: number /** 0 is all the way to left, 100 is all the way to right */;
   text: string;
-  lightText?: boolean;
+  box?: boolean;
+  refHeight?: number;
 };
 
 export type FooterProps = {
   standalone: boolean;
-}
+};
 
 export type CardProps = {
   title: string;
@@ -33,6 +47,8 @@ export type CardProps = {
   active?: boolean;
   key?: string;
   mobile?: boolean;
+  offset?: boolean;
+  timeline?: boolean;
 };
 
 export type NavLinkProps = {
@@ -42,11 +58,17 @@ export type NavLinkProps = {
   scrollTo: number;
 };
 
-
 export type SectionHeaderProps = {
   contentFile: string;
   reverse: boolean;
-}
+  mobile: boolean;
+};
+
+export type CirclesProps = {
+  size: number;
+  fill: string;
+  className: string;
+};
 
 export interface ImageProps {
   src: string;

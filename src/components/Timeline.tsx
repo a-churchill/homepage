@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
-import { createUseStyles } from "react-jss";
-import { AppTheme } from "../types/styles";
-import { TimelineProps, CardProps } from "../types/props"
-import Card, { cardMargin, cardWidth } from "./Card";
+import React, { useEffect, useRef, useState } from 'react';
+import { createUseStyles } from 'react-jss';
+
+import { CardProps, TimelineProps } from '../types/props';
+import { AppTheme } from '../types/styles';
+import Card, { cardMargin, cardWidth } from './Card';
 
 // major credit to https://sudo.isl.co/translate-vertical-horizontal/#The-Effect-Explained
 // for inspiration on the horizontal scroll effect!
@@ -10,7 +11,7 @@ import Card, { cardMargin, cardWidth } from "./Card";
 type styleProps = {
   translateX: number;
   dynamicHeight: number;
-}
+};
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
   // desktop only
@@ -32,6 +33,13 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     willChange: "transform",
     transform: (props: styleProps) => `translateX(${props.translateX}px)`,
   },
+  timeline: {
+    position: "absolute",
+    width: "180%",
+    borderTop: `5px solid ${theme.colorPrimary}`,
+    marginTop: "50vh",
+    marginLeft: "10vw",
+  },
   flexContainer: {
     height: "100%",
     display: "flex",
@@ -46,7 +54,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-  }
+  },
 }));
 
 // helper functions for setting horizontal scroll state
@@ -58,20 +66,26 @@ const calcDynamicHeight = (hcWidth: number, viewWidth: number): number => {
 };
 
 // updates height of tall container at beginning and on resize
-const handleDynamicHeight = (objectRef: React.MutableRefObject<null>, containerRef: React.MutableRefObject<null>, setDynamicHeight: React.Dispatch<React.SetStateAction<number>>
+const handleDynamicHeight = (
+  objectRef: React.MutableRefObject<null>,
+  containerRef: React.MutableRefObject<null>,
+  setDynamicHeight: React.Dispatch<React.SetStateAction<number>>
 ) => {
-  const horizontalContainer = objectRef.current || { scrollWidth: 0 }
+  const horizontalContainer = objectRef.current || { scrollWidth: 0 };
   const hcWidth = horizontalContainer.scrollWidth;
-  const stickyContainer = containerRef.current || { clientWidth: 0 }
+  const stickyContainer = containerRef.current || { clientWidth: 0 };
   const viewWidth = stickyContainer.clientWidth;
   const dynamicHeight = calcDynamicHeight(hcWidth, viewWidth);
   setDynamicHeight(dynamicHeight);
 };
 
 // applies listener to translate horizontal scroll component
-const applyScrollListener = (stickyRef: React.MutableRefObject<null>, setTranslateX: React.Dispatch<React.SetStateAction<number>>) => {
+const applyScrollListener = (
+  stickyRef: React.MutableRefObject<null>,
+  setTranslateX: React.Dispatch<React.SetStateAction<number>>
+) => {
   window.addEventListener("scroll", () => {
-    const current = stickyRef.current || { offsetTop: 0 }
+    const current = stickyRef.current || { offsetTop: 0 };
     const offsetTop = -current.offsetTop;
     setTranslateX(offsetTop);
   });
@@ -80,10 +94,13 @@ const applyScrollListener = (stickyRef: React.MutableRefObject<null>, setTransla
 // given current translateX position, tells which card should be active
 const getCurrentActive = (translateX: number): number => {
   // key point: the card grows when active, meaning we need to account for how much the
-  // margin is eaten into (that's "marginBonus"). 
-  const marginBonus = 0.1 * (cardWidth)
-  return Math.floor(((-translateX + cardWidth / 2) - marginBonus) / (cardWidth + cardMargin + marginBonus))
-}
+  // margin is eaten into (that's "marginBonus").
+  const marginBonus = 0.1 * cardWidth;
+  return Math.floor(
+    (-translateX + (2 * cardWidth) / 3 - marginBonus) /
+      (cardWidth + cardMargin + marginBonus)
+  );
+};
 
 function Timeline(props: TimelineProps) {
   // height of outer tall container
@@ -119,30 +136,38 @@ function Timeline(props: TimelineProps) {
     };
   }, []);
 
-
-  const cards = require(`../content/${props.contentFile}`) as [CardProps]
+  const cards = require(`../content/${props.contentFile}`) as [CardProps];
   return !props.mobile ? (
     // desktop layout
     <div className={classes.outerContainer}>
       <div className={classes.stickyContainer} ref={stickyRef}>
         <div className={classes.horizontalTranslateContainer} ref={hcRef}>
+          <div className={classes.timeline} />
           <div className={classes.flexContainer}>
             {cards.map((card: CardProps, index: number) => {
               return (
-                <Card key={card.title} mobile={false} active={index === getCurrentActive(translateX)} {...card} />)
+                <Card
+                  key={card.title}
+                  mobile={false}
+                  active={index === getCurrentActive(translateX)}
+                  offset={index % 2 === 0}
+                  timeline={true}
+                  {...card}
+                />
+              );
             })}
           </div>
         </div>
       </div>
     </div>
   ) : (
-      // mobile layout
-      <div className={classes.mobileContainer}>
-        {cards.map((card: CardProps, index: number) => {
-          return <Card key={card.title} mobile={true} {...card} />
-        })}
-      </div >
-    );
+    // mobile layout
+    <div className={classes.mobileContainer}>
+      {cards.map((card: CardProps, index: number) => {
+        return <Card key={card.title} mobile={true} {...card} />;
+      })}
+    </div>
+  );
 }
 
 export default Timeline;

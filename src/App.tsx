@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
-import "./fonts/fonts.css";
-import Sidebar from "./components/Sidebar";
-import Hero from "./components/Hero";
-import { AppTheme } from "./types/styles";
-import { createUseStyles } from "react-jss";
-import Footer from "./components/Footer";
-import { Section } from "react-smart-sections";
-import Timeline from "./components/Timeline";
-import { globalTheme, shadowColor } from "./common/theming";
-import SectionHeader from "./components/SectionHeader";
+import './fonts/fonts.css';
+
+import React, { useEffect, useState } from 'react';
+import { createUseStyles } from 'react-jss';
+import { Section } from 'react-smart-sections';
+
+import { globalTheme, shadowColor } from './common/theming';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
+import Photos from './components/Photos';
+import SectionHeader from './components/SectionHeader';
+import Sidebar from './components/Sidebar';
+import Timeline from './components/Timeline';
+import Updates from './components/Updates';
+import { AppTheme } from './types/styles';
 
 const sidebarWidth = "min(30%, 400px)";
 
@@ -58,58 +62,86 @@ function App() {
         <Section name="About">
           <Hero
             pxWidth={dimensions.width}
-            imageName="sausalito.jpg"
-            height={70}
-            horizontalWeight={40}
+            imageName="la-jolla.jpg"
+            height={100}
+            horizontalWeight={20}
             text=""
           />
-          <SectionHeader contentFile="about.json" reverse={false} />
+          <SectionHeader
+            contentFile="about.json"
+            reverse={false}
+            mobile={false}
+          />
         </Section>
         <Section name="Places">
           <Timeline contentFile="places.json" mobile={false} />
         </Section>
-        <Section name="Projects">
+        <Section name="Photos">
           <Hero
             pxWidth={dimensions.width}
-            imageName="light-string.jpg"
+            imageName="louvre-inside.jpg"
             height={50}
-            horizontalWeight={0}
-            text="Projects"
-            lightText={true}
+            horizontalWeight={50}
+            text=""
           />
-        </Section>
-        <Section name="Photos">
-          <div style={{ height: 950 }}></div>
+          <SectionHeader
+            contentFile="photos.json"
+            reverse={false}
+            mobile={false}
+          />
+          <Photos />
         </Section>
         <Section name="Updates">
-          <div style={{ height: 950, background: "black" }}></div>
+          <Hero
+            pxWidth={dimensions.width}
+            imageName="golden-gate.jpg"
+            height={35}
+            horizontalWeight={50}
+            text="Updates"
+            box={true}
+          />
+          <Updates contentFile={"updates.json"} mobile={false} />
         </Section>
-
       </div>
     </div>
   ) : (
-      // mobile layout
-      <div className={classes.mainContent}>
-        <Hero
-          pxWidth={dimensions.width}
-          imageName={"sausalito.jpg"}
-          height={70}
-          text=""
-          horizontalWeight={90}
-        />
-        <SectionHeader contentFile="about.json" reverse={false} />
-        <Timeline contentFile="places.json" mobile={true} />
-        <Hero
-          pxWidth={dimensions.width}
-          imageName={"light-string.jpg"}
-          height={50}
-          text="Projects"
-        />
-        <div>
-          <Footer standalone={true} />
-        </div>
+    // mobile layout
+    <div className={classes.mainContent}>
+      {/* TODO: add header bar */}
+      <Hero
+        pxWidth={dimensions.width}
+        imageName={"embarcadero.jpg"}
+        height={40}
+        text="Andrew Churchill"
+        horizontalWeight={50}
+        box={true}
+      />
+      <SectionHeader contentFile="about.json" reverse={false} mobile={true} />
+      <Timeline contentFile="places.json" mobile={true} />
+      <Hero
+        pxWidth={dimensions.width}
+        imageName="louvre-inside.jpg"
+        height={50}
+        horizontalWeight={50}
+        text=""
+      />
+      <SectionHeader contentFile="photos.json" reverse={false} mobile={true} />
+      <Photos />
+      <Hero
+        pxWidth={dimensions.width}
+        imageName="golden-gate.jpg"
+        height={35}
+        horizontalWeight={50}
+        text="Updates"
+        box={true}
+      />
+      <Updates contentFile={"updates.json"} mobile={true} />
+      <div style={{ height: 100 }}></div>
+      <div>
+        <Footer standalone={true} />
       </div>
-    );
+    </div>
+  );
 }
 
 export default App;

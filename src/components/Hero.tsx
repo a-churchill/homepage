@@ -1,10 +1,11 @@
-import React from "react";
-import { createUseStyles } from "react-jss";
-import { HeroProps } from "../types/props";
-import { Parallax, Background } from "react-parallax";
-import Image from "./Image";
-import { AppTheme } from "../types/styles";
-import { shadowColor } from "../common/theming";
+import React, { useEffect, useRef, useState } from 'react';
+import { createUseStyles } from 'react-jss';
+import { Background, Parallax } from 'react-parallax';
+
+import { shadowColor } from '../common/theming';
+import { HeroProps } from '../types/props';
+import { AppTheme } from '../types/styles';
+import Image from './Image';
 
 const parallaxStrength = 1000;
 
@@ -14,18 +15,42 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "calc(30px + 4vmin)",
-    color: (props: HeroProps) => (props.lightText ? theme.colorHighlight : theme.colorText),
-    textShadow: `0 0 10px ${shadowColor(1)}`
+    fontSize: "calc(10px + 4vh)",
+    color: theme.colorText,
+    textShadow: `0 0 2px ${shadowColor(0.3)}`,
   },
   image: {
-    width: "auto",
-    height: `calc(100% + ${parallaxStrength}px)`,
+    height: (props: HeroProps) =>
+      `calc(${props.refHeight}px + ${parallaxStrength}px)`,
+  },
+  box: {
+    fontFamily: ["concourse_c3_tabregular", "Helvetica", "sans-serif"],
+    maxWidth: "60%",
+    background: theme.colorBackground,
+    borderRadius: 5,
+    padding: 20,
+    boxShadow: `0 0 30px 5px ${shadowColor(1)}`,
   },
 }));
 
 function Hero(props: HeroProps) {
-  let classes = useStyles(props);
+  const [height, setHeight] = useState(0);
+  const classes = useStyles({ refHeight: height, ...props });
+  const heightRef = useRef(null);
+
+  const resizeHandler = () => {
+    const current = heightRef.current || { clientHeight: 0 };
+    setHeight(current.clientHeight);
+  };
+
+  useEffect(() => {
+    resizeHandler();
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, [heightRef]);
 
   const image = require(`../imgs/scaled/${props.imageName}`);
   const overlayImage = require(`../imgs/thumbnails/${props.imageName}`);
@@ -35,19 +60,25 @@ function Hero(props: HeroProps) {
     : "50%";
 
   return (
-    <Parallax strength={700} bgStyle={{ left }}>
-      <header className={classes.header}>
-        {props.text}
-      </header>
-      <Background>
-        <Image
-          src={image}
-          overlaySrc={overlayImage}
-          className={classes.image}
-          alt={props.imageName}
-        />
-      </Background>
-    </Parallax>
+    <div ref={heightRef}>
+      <Parallax strength={parallaxStrength} bgStyle={{ left }}>
+        <header className={classes.header}>
+          {props.box ? (
+            <div className={classes.box}>{props.text}</div>
+          ) : (
+            props.text
+          )}
+        </header>
+        <Background>
+          <Image
+            src={image}
+            overlaySrc={overlayImage}
+            className={classes.image}
+            alt={props.imageName}
+          />
+        </Background>
+      </Parallax>
+    </div>
   );
 }
 

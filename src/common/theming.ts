@@ -1,13 +1,13 @@
-import { AppTheme } from "../types/styles";
+import { AppTheme } from '../types/styles';
 
 export const appTheme: AppTheme = {
   colorPrimary: "#4395ff",
-  colorSecondary: "#3a414b",
+  colorSecondary: "#193f78",
   colorBackground: "rgb(230, 230, 230)",
   colorHighlight: "rgb(240, 240, 240)",
   colorText: "rgb(0, 0, 0)",
   animationExciting: "all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s",
-  animationSimple: "all 0.3s ease-in-out 0s"
+  animationSimple: "all 0.3s ease-in-out 0s",
 };
 
 export const globalTheme = (theme: AppTheme) => ({
@@ -40,8 +40,8 @@ export const globalTheme = (theme: AppTheme) => ({
       fontFamily: ["concourse_t3_tabregular", "Helvetica", "sans-serif"],
     },
   },
-})
+});
 
 export const shadowColor = (opacity: number) => {
-  return `rgba(58, 65, 75, ${opacity})`
-}
+  return `rgba(58, 65, 75, ${opacity})`;
+};
