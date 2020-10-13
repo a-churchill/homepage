@@ -7,7 +7,7 @@ import { AppTheme } from '../types/styles';
 import NavLink from './NavLink';
 import { sectionFallbacks } from './Sidebar';
 
-const headerHeight = "7.5vh";
+const headerHeight = "60px";
 const headerHiddenUntil = 300;
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
@@ -30,6 +30,10 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
 
     "& li": {
       float: "left",
+    },
+
+    "& button": {
+      fontSize: "1.2rem",
     },
   },
 }));

@@ -3,125 +3,183 @@ import Carousel, { Modal, ModalGateway } from 'react-images';
 import { createUseStyles } from 'react-jss';
 import Gallery from 'react-photo-gallery';
 
+import Image from './Image';
+
 const useStyles = createUseStyles((theme) => ({
-  container: {},
+  container: {
+    margin: 2,
+  },
 }));
 
 const photos = [
   {
-    src: require("../imgs/scaled/apple-picking.jpg") as string,
+    src: "apple-picking.jpg",
     width: 2,
     height: 3,
-    title: "My younger sister picking apples in Central MA",
+    alt: "My younger sister picking apples in Central MA",
   },
   {
-    src: require("../imgs/scaled/clue-beach.jpg") as string,
+    src: "clue-beach.jpg",
     width: 8,
     height: 10,
-    title: "Clue at the beach in Winthrop, MA",
+    alt: "Clue at the beach in Winthrop, MA",
   },
   {
-    src: require("../imgs/scaled/mei-mv.jpg") as string,
+    src: "mei-mv.jpg",
     width: 7,
     height: 5,
-    title: "Mei at the golden hour on Menemsha Beach, Martha's Vineyard",
+    alt: "Mei at the golden hour on Menemsha Beach, Martha's Vineyard",
   },
   {
-    src: require("../imgs/scaled/bacardi.jpg") as string,
+    src: "pr-beach.jpg",
     width: 3,
     height: 2,
-    title: "Casa Bacardí in Puerto Rico",
+    alt: "A sunny day at the beach in San Juan, Puerto Rico",
   },
   {
-    src: require("../imgs/scaled/la-jolla.jpg") as string,
-    width: 16,
-    height: 9,
-    title: "Seals and birds bask in the sun at the La Jolla Cove",
-  },
-  {
-    src: require("../imgs/scaled/ships.jpg") as string,
+    src: "bacardi.jpg",
     width: 3,
     height: 2,
-    title: "Ships docked at sunset along the Embarcadero in San Diego",
+    alt: "Casa Bacardí in Puerto Rico",
   },
   {
-    src: require("../imgs/scaled/embarcadero.jpg") as string,
+    src: "la-jolla.jpg",
     width: 16,
     height: 9,
-    title:
+    alt: "Seals and birds bask in the sun at the La Jolla Cove",
+  },
+  {
+    src: "ships.jpg",
+    width: 3,
+    height: 2,
+    alt: "Ships docked at sunset along the Embarcadero in San Diego",
+  },
+  {
+    src: "embarcadero.jpg",
+    width: 16,
+    height: 9,
+    alt:
       "A single boat drifts across the frame, at the Embarcadero in San Francisco",
   },
   {
-    src: require("../imgs/scaled/farm.jpg") as string,
+    src: "farm.jpg",
     width: 4,
     height: 3,
-    title: "Fall in Vermont at a relative's farm",
+    alt: "Fall in Vermont at a relative's farm",
   },
   {
-    src: require("../imgs/scaled/lake-tahoe.jpg") as string,
+    src: "lake-tahoe.jpg",
     width: 3,
     height: 2,
-    title: "Dramatic clouds over Lake Tahoe, Nevada side",
+    alt: "Dramatic clouds over Lake Tahoe, Nevada side",
   },
   {
-    src: require("../imgs/scaled/golden-gate.jpg") as string,
+    src: "golden-gate.jpg",
     width: 16,
     height: 9,
-    title: "The golden hour at the Golden Gate Bridge in San Francisco",
+    alt: "The golden hour at the Golden Gate Bridge in San Francisco",
   },
   {
-    src: require("../imgs/scaled/sausalito.jpg") as string,
+    src: "sausalito.jpg",
     width: 3,
     height: 2,
-    title: "The fog rolling over the hills in Sausalito",
+    alt: "The fog rolling over the hills in Sausalito",
   },
   {
-    src: require("../imgs/scaled/light-string.jpg") as string,
+    src: "fishermans-wharf.jpg",
     width: 7,
     height: 5,
-    title: "A string of lights hanging in my backyard",
+    alt: "The San Francisco sunset reflects off a ferry at Fisherman's Wharf",
   },
   {
-    src: require("../imgs/scaled/palm-tree.jpg") as string,
+    src: "light-string.jpg",
+    width: 7,
+    height: 5,
+    alt: "A string of lights hanging in my backyard",
+  },
+  {
+    src: "palm-tree.jpg",
     width: 1,
     height: 1,
-    title: "Clouds lazily drift by a palm tree in Barcelona",
+    alt: "Clouds lazily drift by a palm tree in Barcelona",
   },
   {
-    src: require("../imgs/scaled/mei-pisa.jpg") as string,
-    width: 3,
-    height: 2,
-    title: "The Leaning Tower of Pisa reflected in Mei's glasses",
-  },
-  {
-    src: require("../imgs/scaled/venice-bar.jpg") as string,
-    width: 2,
-    height: 3,
-    title: "Dusk at a rooftop bar in Venice",
-  },
-  {
-    src: require("../imgs/scaled/louvre-outside.jpg") as string,
-    width: 3,
-    height: 2,
-    title: "The Louvre in Paris",
-  },
-  {
-    src: require("../imgs/scaled/mei-rodin.jpg") as string,
+    src: "cruise-sunset.jpg",
     width: 4,
     height: 3,
-    title: "Mei at the Rodin Museum in Paris",
+    alt: "The sun sets over the Mediterranean Sea",
   },
   {
-    src: require("../imgs/scaled/desert.jpg") as string,
+    src: "mei-pisa.jpg",
+    width: 3,
+    height: 2,
+    alt: "The Leaning Tower of Pisa reflected in Mei's glasses",
+  },
+  {
+    src: "scrooser.jpg",
+    width: 3,
+    height: 2,
+    alt: "Cruising along the seaside in Marseille",
+  },
+  {
+    src: "venice-bar.jpg",
+    width: 2,
+    height: 3,
+    alt: "Dusk at a rooftop bar in Venice",
+  },
+  {
+    src: "louvre-outside.jpg",
+    width: 3,
+    height: 2,
+    alt: "The Louvre in Paris",
+  },
+  {
+    src: "mei-rodin.jpg",
+    width: 4,
+    height: 3,
+    alt: "Mei at the Rodin Museum in Paris",
+  },
+  {
+    src: "sacre-coeur.jpg",
+    width: 3,
+    height: 2,
+    alt: "Sacre-Coeur peaking out from the trees in Paris",
+  },
+  {
+    src: "mei-brunch.jpg",
+    width: 7,
+    height: 5,
+    alt: "Mei at brunch at Sarabeth's in New York City",
+  },
+  {
+    src: "winston-fire.jpg",
+    width: 4,
+    height: 3,
+    alt: "Winston hanging out in front of the fire around Christmas time",
+  },
+  {
+    src: "wadi-rum.jpg",
+    width: 7,
+    height: 5,
+    alt: "Morning in the Wadi Rum desert in Jordan",
+  },
+  {
+    src: "big-dipper.jpg",
+    width: 3,
+    height: 2,
+    alt: "The Big Dipper rising over the Wadi Rum desert in Jordan",
+  },
+  {
+    src: "desert.jpg",
     width: 8,
     height: 10,
-    title: "Driving through the Wadi Rum desert in Jordan",
+    alt: "Driving through the Wadi Rum desert in Jordan",
   },
   {
-    src: require("../imgs/scaled/palm-tree-sunset.jpg") as string,
+    src: "palm-tree-sunset.jpg",
     width: 16,
     height: 9,
-    title: "The sun sets behind a palm tree in Tel Aviv",
+    alt: "The sun sets behind a palm tree in Tel Aviv",
   },
 ];
 
@@ -143,7 +201,28 @@ const Photos = () => {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery
+        photos={photos}
+        onClick={openLightbox}
+        targetRowHeight={400}
+        renderImage={(props) => (
+          <Image
+            src={require(`../imgs/scaled/${props.photo.src}`)}
+            overlaySrc={require(`../imgs/thumbnails/${props.photo.src}`)}
+            alt={props.photo.alt || ""}
+            style={{
+              width: props.photo.width,
+              height: props.photo.height,
+              margin: props.margin,
+              cursor: "pointer",
+            }}
+            onClick={(event: any) =>
+              props.onClick && props.onClick(event, { index: props.index })
+            }
+            key={props.photo.src}
+          />
+        )}
+      />
       <ModalGateway>
         {viewerIsOpen && (
           <Modal onClose={closeLightbox} allowFullscreen={false}>
@@ -151,9 +230,17 @@ const Photos = () => {
               currentIndex={currentImage}
               views={photos.map((x) => ({
                 ...x,
-                source: x.src,
-                caption: x.title,
+                source: require(`../imgs/scaled/${x.src}`),
+                caption: x.alt,
               }))}
+              styles={{
+                view: (base) => ({
+                  ...base,
+                  "& > img": {
+                    maxHeight: "100vh",
+                  },
+                }),
+              }}
             />
           </Modal>
         )}

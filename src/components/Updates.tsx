@@ -16,11 +16,13 @@ type MarkdownImageProps = {
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
   updateContainer: {
-    width: "75%",
-    minWidth: 290,
+    width: "90%",
+    maxWidth: 750,
     margin: "auto",
     background: theme.colorHighlight,
     padding: 30,
+    paddingLeft: 5,
+    paddingRight: 5,
     marginTop: 30,
     marginBottom: 50,
     boxShadow: `${shadowColor(0.25)} 0px 0px 20px 0`,
@@ -28,9 +30,8 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   },
   body: {
     textAlign: "left",
-    width: "60%",
-    minWidth: 240,
-    maxWidth: 600,
+    width: "75%",
+    maxWidth: 550,
     margin: "auto",
     position: "relative",
     fontSize: "1.2rem",

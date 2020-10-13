@@ -12,11 +12,11 @@ const buttonBehavior = {
 const useStyles = createUseStyles((theme: AppTheme) => ({
   navLink: {
     margin: 15,
-    marginLeft: 5,
-    marginRight: 5,
+    marginLeft: 3,
+    marginRight: 3,
   },
   navButton: {
-    fontSize: 24,
+    fontSize: "1.5rem",
     color: (props: NavLinkProps) => (props.active ? theme.colorPrimary : ""),
     "&:hover": {
       color: (props: NavLinkProps) =>
