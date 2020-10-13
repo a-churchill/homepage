@@ -154,7 +154,6 @@ const Photos = () => {
                 source: x.src,
                 caption: x.title,
               }))}
-              // frameProps={{ autoSize: "width" }}
             />
           </Modal>
         )}

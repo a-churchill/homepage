@@ -1,20 +1,21 @@
-import React from "react";
-import NavLink from "./NavLink";
-import me from "../imgs/andrew-churchill.jpg";
-import meThumbnail from "../imgs/thumbnails/andrew-churchill.jpg";
-import { createUseStyles } from "react-jss";
-import { SidebarProps } from "../types/props";
-import { AppTheme } from "../types/styles";
-import Footer from "./Footer";
-import { SectionsSpy } from "react-smart-sections";
-import Image from "./Image";
-import { shadowColor } from "../common/theming";
+import React from 'react';
+import { createUseStyles } from 'react-jss';
+import { SectionsSpy } from 'react-smart-sections';
 
-const sectionFallbacks = [
+import { shadowColor } from '../common/theming';
+import me from '../imgs/andrew-churchill.jpg';
+import meThumbnail from '../imgs/thumbnails/andrew-churchill.jpg';
+import { SidebarProps } from '../types/props';
+import { AppTheme } from '../types/styles';
+import Footer from './Footer';
+import Image from './Image';
+import NavLink from './NavLink';
+
+export const sectionFallbacks = [
   { name: "About", active: true, yScrollPoint: 0 },
   { name: "Places", active: false, yScrollPoint: 0 },
-  { name: "Projects", active: false, yScrollPoint: 0 },
-  { name: "Photos", active: false, yScrollPoint: 0 }
+  { name: "Photos", active: false, yScrollPoint: 0 },
+  { name: "Updates", active: false, yScrollPoint: 0 }
 ];
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
@@ -68,7 +69,6 @@ function Sidebar(props: SidebarProps) {
             alt="me"
           />
         </div>
-        {/* <img className={classes.image} src={me} alt="me" /> */}
         <h1 className={classes.name}>
           Andrew
           <br />

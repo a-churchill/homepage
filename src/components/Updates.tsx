@@ -17,19 +17,19 @@ type MarkdownImageProps = {
 const useStyles = createUseStyles((theme: AppTheme) => ({
   updateContainer: {
     width: "75%",
-    minWidth: 300,
+    minWidth: 290,
     margin: "auto",
     background: theme.colorHighlight,
-    padding: 10,
+    padding: 30,
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 50,
     boxShadow: `${shadowColor(0.25)} 0px 0px 20px 0`,
-    borderRadius: 5,
+    borderRadius: 8,
   },
   body: {
     textAlign: "left",
     width: "60%",
-    minWidth: 230,
+    minWidth: 240,
     maxWidth: 600,
     margin: "auto",
     position: "relative",
@@ -76,7 +76,6 @@ const Updates = (props: UpdatesProps) => {
                 source={content.body}
                 renderers={{
                   image: (props: MarkdownImageProps) => {
-                    console.log(props);
                     return (
                       <div className={classes.imageContainer}>
                         <Image

@@ -21,7 +21,7 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
   },
   image: {
     height: (props: HeroProps) =>
-      `calc(${props.refHeight}px + ${parallaxStrength}px)`,
+      `calc(${props.refHeight}px + ${props.mobile ? 0 : parallaxStrength}px)`,
   },
   box: {
     fontFamily: ["concourse_c3_tabregular", "Helvetica", "sans-serif"],
@@ -61,7 +61,7 @@ function Hero(props: HeroProps) {
 
   return (
     <div ref={heightRef}>
-      <Parallax strength={parallaxStrength} bgStyle={{ left }}>
+      <Parallax strength={props.mobile ? 0 : parallaxStrength} bgStyle={{ left }}>
         <header className={classes.header}>
           {props.box ? (
             <div className={classes.box}>{props.text}</div>

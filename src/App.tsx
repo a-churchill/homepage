@@ -6,6 +6,7 @@ import { Section } from 'react-smart-sections';
 
 import { globalTheme, shadowColor } from './common/theming';
 import Footer from './components/Footer';
+import HeaderBar from './components/HeaderBar';
 import Hero from './components/Hero';
 import Photos from './components/Photos';
 import SectionHeader from './components/SectionHeader';
@@ -107,39 +108,56 @@ function App() {
   ) : (
     // mobile layout
     <div className={classes.mainContent}>
-      {/* TODO: add header bar */}
-      <Hero
-        pxWidth={dimensions.width}
-        imageName={"embarcadero.jpg"}
-        height={40}
-        text="Andrew Churchill"
-        horizontalWeight={50}
-        box={true}
-      />
-      <SectionHeader contentFile="about.json" reverse={false} mobile={true} />
-      <Timeline contentFile="places.json" mobile={true} />
-      <Hero
-        pxWidth={dimensions.width}
-        imageName="louvre-inside.jpg"
-        height={50}
-        horizontalWeight={50}
-        text=""
-      />
-      <SectionHeader contentFile="photos.json" reverse={false} mobile={true} />
-      <Photos />
-      <Hero
-        pxWidth={dimensions.width}
-        imageName="golden-gate.jpg"
-        height={35}
-        horizontalWeight={50}
-        text="Updates"
-        box={true}
-      />
-      <Updates contentFile={"updates.json"} mobile={true} />
+      <HeaderBar />
+      <Section name="About">
+        <Hero
+          mobile
+          pxWidth={dimensions.width}
+          imageName={"embarcadero.jpg"}
+          height={50}
+          text="Andrew Churchill"
+          horizontalWeight={50}
+          box={true}
+        />
+        <SectionHeader contentFile="about.json" reverse={false} mobile={true} />
+      </Section>
+
+      <Section name="Places">
+        <Timeline contentFile="places.json" mobile={true} />
+      </Section>
+
+      <Section name="Photos">
+        <Hero
+          mobile
+          pxWidth={dimensions.width}
+          imageName="louvre-inside.jpg"
+          height={50}
+          horizontalWeight={50}
+          text=""
+        />
+        <SectionHeader
+          contentFile="photos.json"
+          reverse={false}
+          mobile={true}
+        />
+        <Photos />
+      </Section>
+
+      <Section name="Updates">
+        <Hero
+          mobile
+          pxWidth={dimensions.width}
+          imageName="golden-gate.jpg"
+          height={35}
+          horizontalWeight={50}
+          text="Updates"
+          box={true}
+        />
+        <Updates contentFile={"updates.json"} mobile={true} />
+      </Section>
+
       <div style={{ height: 100 }}></div>
-      <div>
-        <Footer standalone={true} />
-      </div>
+      <Footer standalone={true} />
     </div>
   );
 }

@@ -34,6 +34,7 @@ export type HeroProps = {
   text: string;
   box?: boolean;
   refHeight?: number;
+  mobile?: boolean;
 };
 
 export type FooterProps = {
@@ -56,6 +57,7 @@ export type NavLinkProps = {
   key: string;
   active: boolean;
   scrollTo: number;
+  lightMode?: boolean;
 };
 
 export type SectionHeaderProps = {

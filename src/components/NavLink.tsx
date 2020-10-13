@@ -1,31 +1,32 @@
-import React from "react";
-import { NavLinkProps } from "../types/props";
-import { createUseStyles } from "react-jss";
-import { AppTheme } from "../types/styles";
-import { animateScroll as scroll } from "react-scroll";
+import React from 'react';
+import { createUseStyles } from 'react-jss';
+import { animateScroll as scroll } from 'react-scroll';
+
+import { NavLinkProps } from '../types/props';
+import { AppTheme } from '../types/styles';
 
 const buttonBehavior = {
-  outline: "none"
+  outline: "none",
 };
 
 const useStyles = createUseStyles((theme: AppTheme) => ({
   navLink: {
-    marginTop: 15
+    margin: 15,
+    marginLeft: 5,
+    marginRight: 5,
   },
   navButton: {
     fontSize: 24,
     color: (props: NavLinkProps) => (props.active ? theme.colorPrimary : ""),
-    // textDecoration: (props: NavLinkProps) =>
-    //   props.active ? "underline" : "none",
     "&:hover": {
       color: (props: NavLinkProps) =>
         props.active ? theme.colorPrimary : theme.colorSecondary,
-      ...buttonBehavior
+      ...buttonBehavior,
     },
     "&:focus": {
       color: (props: NavLinkProps) =>
         props.active ? theme.colorPrimary : theme.colorSecondary,
-      ...buttonBehavior
+      ...buttonBehavior,
     },
     "&:before": {
       content: '""',
@@ -40,14 +41,14 @@ const useStyles = createUseStyles((theme: AppTheme) => ({
         props.active ? "visible" : "hidden",
       transform: (props: NavLinkProps) =>
         props.active ? "scaleX(0.8)" : "scaleX(0)",
-      transition: theme.animationExciting
+      transition: theme.animationExciting,
     },
     "&:hover:before": {
       visibility: "visible",
-      transform: "scaleX(0.8)"
+      transform: "scaleX(0.8)",
     },
-    transition: theme.animationExciting
-  }
+    transition: theme.animationExciting,
+  },
 }));
 
 function NavLink(props: NavLinkProps) {
