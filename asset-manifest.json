@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.06401b81.chunk.css",
-    "main.js": "/static/js/main.9e2c47e2.chunk.js",
-    "main.js.map": "/static/js/main.9e2c47e2.chunk.js.map",
+    "main.js": "/static/js/main.042c021b.chunk.js",
+    "main.js.map": "/static/js/main.042c021b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.0ee01374.js",
     "runtime-main.js.map": "/static/js/runtime-main.0ee01374.js.map",
-    "static/js/2.0eeb69ca.chunk.js": "/static/js/2.0eeb69ca.chunk.js",
-    "static/js/2.0eeb69ca.chunk.js.map": "/static/js/2.0eeb69ca.chunk.js.map",
+    "static/js/2.df0bd805.chunk.js": "/static/js/2.df0bd805.chunk.js",
+    "static/js/2.df0bd805.chunk.js.map": "/static/js/2.df0bd805.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.83006862d05fe1e92e9665fdc68d4671.js": "/precache-manifest.83006862d05fe1e92e9665fdc68d4671.js",
+    "precache-manifest.c6fd49baadfc332caf0d294b6432da7e.js": "/precache-manifest.c6fd49baadfc332caf0d294b6432da7e.js",
     "service-worker.js": "/service-worker.js",
     "static/css/main.06401b81.chunk.css.map": "/static/css/main.06401b81.chunk.css.map",
-    "static/js/2.0eeb69ca.chunk.js.LICENSE.txt": "/static/js/2.0eeb69ca.chunk.js.LICENSE.txt",
+    "static/js/2.df0bd805.chunk.js.LICENSE.txt": "/static/js/2.df0bd805.chunk.js.LICENSE.txt",
     "static/media/andrew-churchill.jpg": "/static/media/andrew-churchill.5bb9dd42.jpg",
     "static/media/apple-picking.jpg": "/static/media/apple-picking.85451174.jpg",
     "static/media/bacardi.jpg": "/static/media/bacardi.efe84683.jpg",
@@ -30,6 +30,7 @@
     "static/media/mei-pisa.jpg": "/static/media/mei-pisa.8e86e5e0.jpg",
     "static/media/mei-rodin.jpg": "/static/media/mei-rodin.f2429a06.jpg",
     "static/media/microsoft.png": "/static/media/microsoft.8a646f8f.png",
+    "static/media/nibble-accounts.png": "/static/media/nibble-accounts.8f995375.png",
     "static/media/nibble-architecture.png": "/static/media/nibble-architecture.a4943a02.png",
     "static/media/nibble-map-view.png": "/static/media/nibble-map-view.5bac74fd.png",
     "static/media/nibble-screenshot.png": "/static/media/nibble-screenshot.cb07eaf2.png",
@@ -46,8 +47,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0ee01374.js",
-    "static/js/2.0eeb69ca.chunk.js",
+    "static/js/2.df0bd805.chunk.js",
     "static/css/main.06401b81.chunk.css",
-    "static/js/main.9e2c47e2.chunk.js"
+    "static/js/main.042c021b.chunk.js"
   ]
 }
